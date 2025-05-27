@@ -220,7 +220,7 @@ class ReportSystem {
     }
     
     public function generateReport($snapshotTime) {
-        $reportStartTime = $this->getRoundedTime($snapshotTime, -15); // 15 menit sebelumnya
+        $reportStartTime = $this->getRoundedTime($snapshotTime, -15); 
         $reportEndTime = $snapshotTime;
         
         $reportData = [];
