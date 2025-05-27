@@ -169,8 +169,7 @@ echo "Nilai terbesar kedua: " . getNilaiTerbesarKedua($randomIntegers) . "\n";
 // ==================== SOAL 5: KARAKTER TERBANYAK ====================
 function getKarakterTerbanyak($kata) {
     $karakterCount = [];
-    
-    // Hitung kemunculan setiap karakter
+
     for ($i = 0; $i < strlen($kata); $i++) {
         $char = $kata[$i];
         if (!isset($karakterCount[$char])) {
