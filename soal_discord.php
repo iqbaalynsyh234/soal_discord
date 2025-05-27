@@ -203,9 +203,7 @@ foreach ($testWords as $word) {
 // ==================== SOAL 6: REPORT SYSTEM ====================
 class ReportSystem {
     private $transactions = [];
-    
     public function __construct() {
-        // Dataset berdasarkan gambar
         $this->transactions = [
             ['id' => 'A', 'incoming' => 1000, 'outgoing' => 0, 'diff' => 1000, 'created' => '2025-04-22 23:59:20', 'updated' => '2025-04-23 12:01:01'],
             ['id' => 'B', 'incoming' => 1000, 'outgoing' => 0, 'diff' => 1000, 'created' => '2025-04-23 12:01:45', 'updated' => '2025-04-23 12:03:10'],
@@ -221,7 +219,7 @@ class ReportSystem {
     }
     
     public function generateReport($snapshotTime) {
-        $reportStartTime = $this->getRoundedTime($snapshotTime, -15); // 15 menit sebelumnya
+        $reportStartTime = $this->getRoundedTime($snapshotTime, -15);
         $reportEndTime = $snapshotTime;
         
         $reportData = [];
@@ -229,10 +227,10 @@ class ReportSystem {
         $totalOutgoing = 0;
         
         foreach ($this->transactions as $trx) {
-            // Gunakan updated time jika ada, kalau tidak pakai created time
+           
             $effectiveTime = $trx['updated'] ? $trx['updated'] : $trx['created'];
             
-            // Cek apakah transaksi masuk dalam interval report
+            
             if ($effectiveTime >= $reportStartTime && $effectiveTime <= $reportEndTime) {
                 $reportData[] = [
                     'id' => $trx['id'],
@@ -266,7 +264,7 @@ class ReportSystem {
         
         if ($roundedMinutes < 0) {
             $roundedMinutes = 45;
-            $timestamp -= 3600; // kurangi 1 jam
+            $timestamp -= 3600; 
         }
         
         return date('Y-m-d H:' . str_pad($roundedMinutes, 2, '0', STR_PAD_LEFT) . ':00', $timestamp);
