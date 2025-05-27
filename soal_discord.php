@@ -205,7 +205,6 @@ class ReportSystem {
     private $transactions = [];
     
     public function __construct() {
-        // Dataset berdasarkan gambar
         $this->transactions = [
             ['id' => 'A', 'incoming' => 1000, 'outgoing' => 0, 'diff' => 1000, 'created' => '2025-04-22 23:59:20', 'updated' => '2025-04-23 12:01:01'],
             ['id' => 'B', 'incoming' => 1000, 'outgoing' => 0, 'diff' => 1000, 'created' => '2025-04-23 12:01:45', 'updated' => '2025-04-23 12:03:10'],
